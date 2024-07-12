@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.patika</groupId>
-	<artifactId>LibraryManagementWithAPI</artifactId>
+	<artifactId>LibraryManagementWithRestAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>LibraryManagementWithAPI</name>
 	<description>Ecommerce REST API Project</description>
