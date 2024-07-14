@@ -41,14 +41,14 @@ public class CategoryManager implements ICategoryService {
     }
 
     @Override
-    public boolean delete(int id) {
+    public String delete(int id) {
         List<Book> books = bookRepo.findByCategoryListId(id);
         if (!books.isEmpty()) {
-            return false;
+            return "There are books belonging to this category. This category could not be deleted.";
         }
         Category category = this.get(id);
         this.categoryRepo.delete(category);
-        return true;
+        return "Category deleted successfully.";
     }
 
     @Override

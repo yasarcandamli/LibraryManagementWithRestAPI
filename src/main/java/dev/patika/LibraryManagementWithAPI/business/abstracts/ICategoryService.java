@@ -12,7 +12,7 @@ public interface ICategoryService {
 
     Category update(Category category);
 
-    boolean delete(int id);
+    String delete(int id);
 
     Page<Category> cursor(int page, int pageSize);
 

@@ -27,6 +27,10 @@ public class ResultHelper {
         return new Result(false, message, "404");
     }
 
+    public static Result error() {
+        return new Result(false, Messages.ERROR, "400");
+    }
+
     public static <T> ResultData<CursorResponse<T>> cursor(Page<T> pageData) {
         CursorResponse<T> cursor = new CursorResponse<>();
         cursor.setItems(pageData.getContent());

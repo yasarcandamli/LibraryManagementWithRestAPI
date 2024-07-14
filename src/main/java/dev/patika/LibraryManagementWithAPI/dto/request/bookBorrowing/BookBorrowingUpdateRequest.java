@@ -13,8 +13,6 @@ import java.time.LocalDate;
 public class BookBorrowingUpdateRequest {
     private int id;
     private String borrowerName;
-    @Email
-    private String borrowerEmail;
     private LocalDate borrowingDate;
     private LocalDate returnDate;
     private int bookId;

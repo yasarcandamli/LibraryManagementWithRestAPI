@@ -65,7 +65,11 @@ public class CategoryController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Result delete(@PathVariable("id") int id) {
-        this.categoryService.delete(id);
-        return ResultHelper.ok();
+        String result = this.categoryService.delete(id);
+        if (result.equals("There are books belonging to this category. This category could not be deleted.")) {
+            return ResultHelper.error();
+        } else {
+            return ResultHelper.ok();
+        }
     }
 }

@@ -15,13 +15,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookBorrowingManager implements IBookBorrowingService {
     private final BookBorrowingRepo bookBorrowingRepo;
+    private final BookRepo bookRepo;
 
-    public BookBorrowingManager(BookBorrowingRepo bookBorrowingRepo) {
+    public BookBorrowingManager(BookBorrowingRepo bookBorrowingRepo, BookRepo bookRepo) {
         this.bookBorrowingRepo = bookBorrowingRepo;
+        this.bookRepo = bookRepo;
     }
 
     @Override
     public BookBorrowing save(BookBorrowing bookBorrowing) {
+        Book book = bookRepo.findById(bookBorrowing.getBook().getId()).orElseThrow(() -> new NotFoundException(Messages.NOT_FOUND));
+        if (book.getStock() <= 0) {
+            throw new RuntimeException("Out of stock!");
+        }
+        book.setStock(book.getStock() - 1);
+        bookRepo.save(book);
         return this.bookBorrowingRepo.save(bookBorrowing);
     }
 
