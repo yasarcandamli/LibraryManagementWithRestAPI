@@ -10,7 +10,6 @@ import dev.patika.LibraryManagementWithAPI.core.result.ResultData;
 import dev.patika.LibraryManagementWithAPI.core.utility.ResultHelper;
 import dev.patika.LibraryManagementWithAPI.dto.request.book.BookSaveRequest;
 import dev.patika.LibraryManagementWithAPI.dto.request.book.BookUpdateRequest;
-import dev.patika.LibraryManagementWithAPI.dto.request.publisher.PublisherSaveRequest;
 import dev.patika.LibraryManagementWithAPI.dto.response.CursorResponse;
 import dev.patika.LibraryManagementWithAPI.dto.response.author.AuthorResponse;
 import dev.patika.LibraryManagementWithAPI.dto.response.book.BookResponse;
@@ -125,7 +124,7 @@ public class BookController {
     }
 
     @PutMapping
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public ResultData<BookResponse> update(@Valid @RequestBody BookUpdateRequest bookUpdateRequest) {
         Book updateBook = this.modelMapper.forRequest().map(bookUpdateRequest, Book.class);
 
@@ -142,7 +141,7 @@ public class BookController {
         BookResponse bookResponse = this.modelMapper.forResponse().map(updateBook, BookResponse.class);
         bookResponse.setCategoryIdList(updateBook.getCategoryList().stream().map(Category::getId).collect(Collectors.toList()));
 
-        return ResultHelper.created(bookResponse);
+        return ResultHelper.success(bookResponse);
     }
 
     @DeleteMapping("/{id}")
