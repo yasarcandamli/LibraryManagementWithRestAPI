@@ -1,4 +1,4 @@
-package dev.patika.LibraryManagementWithAPI.dto.response.publisher;
+package dev.patika.LibraryManagementWithAPI.dto.response.category;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PublisherResponse {
+public class CategoryResponse {
     private int id;
     private String name;
+    private String description;
 }
