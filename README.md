@@ -61,8 +61,7 @@ To run this project locally, ensure you have Java 11 or higher and PostgreSQL in
 
 ### 1. Clone the repository:
 
-git clone https://github.com/your/repository.git
-cd repository-folder
+git clone https://github.com/yasarcandamli/LibraryManagementWithRestAPI.git
 
 ### 2. Configure PostgreSQL database settings in application.properties.
 
