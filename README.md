@@ -60,18 +60,21 @@ The project includes the following entities and their relationships:
 To run this project locally, ensure you have Java 11 or higher and PostgreSQL installed. Follow these steps:
 
 ### 1. Clone the repository:
-
+```bash
 git clone https://github.com/yasarcandamli/LibraryManagementWithRestAPI.git
+```
 
 ### 2. Configure PostgreSQL database settings in application.properties.
 
 ### 3. Build the project:
-
+```bash
 ./mvnw clean package
+```
 
 ### 4. Run the application:
-
+```bash
 java -jar target/library-management-system-1.0.jar
+```
 
 ## Usage
 - Use an API development tool like Postman or curl to interact with the endpoints listed above.
